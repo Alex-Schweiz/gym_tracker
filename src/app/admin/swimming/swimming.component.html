@@ -3,39 +3,48 @@
     <h1>Swimming</h1>
     <ul class="breadcrumb side">
       <li><i class="fa fa-home fa-lg"></i></li>
-      <li class="active"><a href="#">Swimming</a></li>
+      <li class="active"><a>Swimming</a></li>
     </ul>
   </div>
   <div>
     <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
-    <a class="btn btn-primary btn-flat" data-toggle="modal" data-target="#myModal" ><i class="fa fa-lg fa-plus"></i> Add a training</a>
+    <a class="btn btn-primary btn-flat" (click)="openModal(template)"><i class="fa fa-lg fa-plus"></i> Add a training</a>
     <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Add a new swimming training</h4>
-          </div>
+    <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title">Add a new swimming training</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <form #swimForm="ngForm">
           <div class="modal-body">
-            <form action="">
-              <h5>Date</h5>
-              <input class="form-control" id="demoDate" type="text" placeholder="Select Date">
-              <h5>Distance</h5>
-              <input class="form-control" id="distance" type="number" placeholder="Swum distance (m)">
-              <h5>Comments</h5>
-              <textarea class="form-control" id="textArea" rows="3" placeholder="Share your emotions about training"></textarea>
-            </form>
+            <h5>Date</h5>
+            <my-date-picker name="mydate" [options]="myDatePickerOptions"
+                            [(ngModel)]="selectedDate" required></my-date-picker>
+            <h5>Distance</h5>
+            <input
+              class="form-control"
+              id="distance"
+              type="number"
+              required
+              [(ngModel)]="distance"
+              name="distance"
+              placeholder="Swim distance (m)">
+            <h5>Comments</h5>
+            <textarea
+              class="form-control"
+              id="comments"
+              rows="3"
+              [(ngModel)]="comments"
+              name="comments"
+              placeholder="Share your emotions about training"></textarea>
           </div>
           <div class="modal-footer">
-            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-            <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+            <button type="button" class="btn btn-success" (click)="addSwim(); swimForm.reset()" >Save</button>
           </div>
-        </div>
-      </div>
-    </div>
+        </form>
+    </ng-template>
   </div>
 </div>
 <div class="row">
@@ -51,15 +60,10 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>21/08/2015</td>
-            <td>750</td>
-            <td>Great training</td>
-          </tr>
-          <tr>
-            <td>22/08/2015</td>
-            <td>800</td>
-            <td>Great training</td>
+          <tr *ngFor="let swim of swims">
+            <td>{{swim.date}}</td>
+            <td>{{swim.distance}}</td>
+            <td>{{swim.comment}}</td>
           </tr>
           </tbody>
         </table>
