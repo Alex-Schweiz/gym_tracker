@@ -1,0 +1,50 @@
+{
+	"items" : [
+		 {
+		  "body" : "This is item one",
+		  "name" : "Item one"
+		}, {
+		  "body" : "This is item two",
+		  "name" : "Item two"
+		}, {
+		  "body" : "This is item three",
+		  "name" : "Item 3"
+		}, {
+		  "body" : "This is item 4",
+		  "name" : "Item 4"
+		}, {
+		  "body" : "This is item 5",
+		  "name" : "Item 5"
+		}, {
+		  "body" : "This is item 6",
+		  "name" : "Item 6"
+		} 
+	],
+	"swims" : [
+		 {
+		  "date" : "1504479250",
+		  "distance" : 874,
+		  "comments": "Nice job"
+		}, {
+		  "date" : "1504479250",
+		  "distance" : 741,
+		  "comments": "Good job"
+		}, {
+		  "date" : "1504306450",
+		  "distance" : 478,
+		  "comments": "Tired"
+		}, {
+		  "date" : "1504306450",
+		  "distance" : 478,
+		  "comments": "Awesome"
+		},{
+		  "date" : "1504306450",
+		  "distance" : 584,
+		  "comments": "Cool weather"
+		}, {
+		  "date" : "1504306450",
+		  "distance" : 987,
+		  "comments": "Tired"
+		}
+	]
+}

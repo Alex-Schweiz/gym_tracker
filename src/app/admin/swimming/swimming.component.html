@@ -54,19 +54,32 @@
         <table class="table table-hover table-bordered" id="sampleTable">
           <thead>
           <tr>
+            <th>#</th>
             <th>Date</th>
             <th>Distance</th>
             <th>Comment</th>
+            <th style="width: 12%;">Actions</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let swim of swims">
-            <td>{{swim.date}}</td>
+          <tr *ngFor="let swim of (swims | async); let i = index">
+            <td>{{i}}</td>
+            <td>{{swim.date * 1000 | date }}</td>
             <td>{{swim.distance}}</td>
-            <td>{{swim.comment}}</td>
+            <td>{{swim.comments}}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteSwim(swim.$key)">
+                Delete
+              </button>
+            </td>
           </tr>
           </tbody>
         </table>
+        <!--<ul>
+          <li *ngFor="let item of items | async">
+            {{ item.name }}
+          </li>
+        </ul>-->
       </div>
     </div>
   </div>

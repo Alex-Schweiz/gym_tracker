@@ -4,6 +4,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { SwimmingService } from './swimming.service';
 import { IMyDpOptions } from 'mydatepicker';
 
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-swimming',
@@ -13,27 +14,30 @@ import { IMyDpOptions } from 'mydatepicker';
 export class SwimmingComponent implements OnInit {
 
   public modalRef: BsModalRef;
-  public swims = [];
   public distance: number;
   public comments: string;
   public selectedDate: any;
 
-  public newSwim: Swim;
+  items: FirebaseListObservable<any[]>;
+  swims: FirebaseListObservable<any[]>;
 
   public myDatePickerOptions: IMyDpOptions = {
     dateFormat: 'dd.mm.yyyy',
   };
 
   constructor(private _swimmingService: SwimmingService,
-              private modalService: BsModalService) { }
+              private modalService: BsModalService,
+              db: AngularFireDatabase) {
+    this.items = db.list('/items');
+    this.swims = db.list('/swims'); }
 
   ngOnInit() {
-    this.getSwims();
+    // this.getSwims();
   }
 
-  getSwims() {
+/*  getSwims() {
     this.swims = this._swimmingService.getSwimmings();
-  }
+  }*/
 
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -47,8 +51,12 @@ export class SwimmingComponent implements OnInit {
     newEntry.comments = this.comments;
     this.modalRef.hide();
     console.log(newEntry);
+    this.swims.push(newEntry);
   }
 
+  deleteSwim(key: string) {
+    this.swims.remove(key);
+  }
 }
 
 class Swim {
