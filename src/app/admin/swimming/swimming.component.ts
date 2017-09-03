@@ -18,7 +18,6 @@ export class SwimmingComponent implements OnInit {
   public comments: string;
   public selectedDate: any;
 
-  items: FirebaseListObservable<any[]>;
   swims: FirebaseListObservable<any[]>;
 
   public myDatePickerOptions: IMyDpOptions = {
@@ -28,16 +27,11 @@ export class SwimmingComponent implements OnInit {
   constructor(private _swimmingService: SwimmingService,
               private modalService: BsModalService,
               db: AngularFireDatabase) {
-    this.items = db.list('/items');
     this.swims = db.list('/swims'); }
 
   ngOnInit() {
-    // this.getSwims();
+    
   }
-
-/*  getSwims() {
-    this.swims = this._swimmingService.getSwimmings();
-  }*/
 
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
