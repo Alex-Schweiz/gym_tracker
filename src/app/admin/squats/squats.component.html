@@ -67,12 +67,10 @@
             <td>{{squat.repeats}}</td>
             <td>{{squat.comments}}</td>
             <td>
-              <button class="btn btn-danger" (click)="deleteSquat(squat.$key)">
+              <button class="btn btn-danger" (click)="openModal(softDeleteModal)">
                 Delete
               </button>
-              <button class="btn btn-success" (click)="openModal(softDeleteModal)">
-                SD
-              </button>
+              <!-- SoftDelete modal -->
               <ng-template #softDeleteModal>
                 <div class="modal-header">
                   <h4 class="modal-title pull-left">Are you sure you want to delete current entry?</h4>
