@@ -43,6 +43,10 @@ export class SquatsComponent implements OnInit {
     this.squats.push(newSquat);
   }
 
+  softDeleteSquat(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
   deleteSquat(key: string) {
     this.squats.remove(key);
   }

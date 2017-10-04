@@ -7,9 +7,9 @@
     </ul>
   </div>
   <div>
-    <a class="btn btn-primary btn-flat" (click)="openModal(template)"><i class="fa fa-lg fa-plus"></i> Add a training</a>
+    <a class="btn btn-primary btn-flat" (click)="openModal(newTrainingModal)"><i class="fa fa-lg fa-plus"></i> Add a training</a>
     <!-- Modal -->
-    <ng-template #template>
+    <ng-template #newTrainingModal>
       <div class="modal-header">
         <h4 class="modal-title">Add a new squats training</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -70,6 +70,25 @@
               <button class="btn btn-danger" (click)="deleteSquat(squat.$key)">
                 Delete
               </button>
+              <button class="btn btn-success" (click)="openModal(softDeleteModal)">
+                SD
+              </button>
+              <ng-template #softDeleteModal>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Are you sure you want to delete current entry?</h4>
+                  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <button class="btn btn-default" (click)="modalRef.hide()">
+                    Cancel
+                  </button>
+                  <button class="btn btn-danger" style="float: right;" (click)="deleteSquat(squat.$key);modalRef.hide()">
+                    Delete
+                  </button>
+                </div>
+              </ng-template>
             </td>
           </tr>
           </tbody>
