@@ -15,7 +15,6 @@ export class PushupsComponent implements OnInit {
 
   ngOnInit() {
     this.getPushups();
-    console.log(this.pushups);
   }
 
   getPushups() {
