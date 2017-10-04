@@ -67,9 +67,26 @@
             <td>{{swim.distance}}</td>
             <td>{{swim.comments}}</td>
             <td>
-              <button class="btn btn-danger" (click)="deleteSwim(swim.$key)">
+              <button class="btn btn-danger" (click)="openModal(softDeleteModal)">
                 Delete
               </button>
+              <!-- SoftDelete modal -->
+              <ng-template #softDeleteModal>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Are you sure you want to delete current entry?</h4>
+                  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <button class="btn btn-default" (click)="modalRef.hide()">
+                    Cancel
+                  </button>
+                  <button class="btn btn-danger" style="float: right;" (click)="deleteSquat(squat.$key);modalRef.hide()">
+                    Delete
+                  </button>
+                </div>
+              </ng-template>
             </td>
           </tr>
           </tbody>
