@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PushupsService } from './pushups.service';
 
 @Component({
   selector: 'app-pushups',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PushupsComponent implements OnInit {
 
-  constructor() { }
+  public target = 200;
+  public pushups = [];
+
+  constructor(private _pushupsService: PushupsService) { }
 
   ngOnInit() {
+    this.getPushups();
+    console.log(this.pushups);
+  }
+
+  getPushups() {
+    this.pushups = this._pushupsService.getPushups();
+    this.pushups.forEach( (pushup) => {
+      pushup.percentage = (pushup.repeats / this.target * 100).toFixed(2);
+    });
   }
 
 }

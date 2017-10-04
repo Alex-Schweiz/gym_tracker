@@ -1,25 +1,4 @@
 {
-	"items" : [
-		 {
-		  "body" : "This is item one",
-		  "name" : "Item one"
-		}, {
-		  "body" : "This is item two",
-		  "name" : "Item two"
-		}, {
-		  "body" : "This is item three",
-		  "name" : "Item 3"
-		}, {
-		  "body" : "This is item 4",
-		  "name" : "Item 4"
-		}, {
-		  "body" : "This is item 5",
-		  "name" : "Item 5"
-		}, {
-		  "body" : "This is item 6",
-		  "name" : "Item 6"
-		} 
-	],
 	"swims" : [
 		 {
 		  "date" : "1504479250",
@@ -46,5 +25,86 @@
 		  "distance" : 987,
 		  "comments": "Tired"
 		}
-	]
+	],
+  "pushups" : [
+    {
+      "date" : "1504479250",
+      "repeats" : 15,
+      "comments": "Nice job"
+    }, {
+      "date" : "1504479250",
+      "repeats" : 18,
+      "comments": "Good job"
+    }, {
+      "date" : "1504306450",
+      "repeats" : 19,
+      "comments": "Tired"
+    }, {
+      "date" : "1504306450",
+      "repeats" : 21,
+      "comments": "Awesome"
+    },{
+      "date" : "1504306450",
+      "repeats" : 25,
+      "comments": "Cool weather"
+    }, {
+      "date" : "1504306450",
+      "repeats" : 30,
+      "comments": "Tired"
+    }
+  ],
+  "situps" : [
+    {
+      "date" : "1504479250",
+      "repeats" : 25,
+      "comments": "Nice job"
+    }, {
+      "date" : "1504479250",
+      "repeats" : 30,
+      "comments": "Good job"
+    }, {
+      "date" : "1504306450",
+      "repeats" : 25,
+      "comments": "Tired"
+    }, {
+      "date" : "1504306450",
+      "repeats" : 50,
+      "comments": "Awesome"
+    },{
+      "date" : "1504306450",
+      "repeats" : 40,
+      "comments": "Cool weather"
+    }, {
+      "date" : "1504306450",
+      "repeats" : 15,
+      "comments": "Tired"
+    }
+  ],
+  "squats" : [
+    {
+      "date" : "1504479250",
+      "repeats" : 20,
+      "comments": "Nice job"
+    }, {
+      "date" : "1504479250",
+      "repeats" : 25,
+      "comments": "Good job"
+    }, {
+      "date" : "1504306450",
+      "repeats" : 50,
+      "comments": "Tired"
+    }, {
+      "date" : "1504306450",
+      "repeats" : 40,
+      "comments": "Awesome"
+    },{
+      "date" : "1504306450",
+      "repeats" : 80,
+      "comments": "Cool weather"
+    }, {
+      "date" : "1504306450",
+      "repeats" : 85,
+      "comments": "Tired"
+    }
+  ]
 }

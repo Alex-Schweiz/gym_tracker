@@ -13,6 +13,12 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class SwimmingComponent implements OnInit {
 
+  public filterQuery = '';
+  public rowsOnPage = 10;
+  public sortBy = 'month';
+  public sortOrder = 'asc';
+  public showTable = true;
+
   public modalRef: BsModalRef;
   public distance: number;
   public comments: string;
@@ -27,10 +33,10 @@ export class SwimmingComponent implements OnInit {
   constructor(private _swimmingService: SwimmingService,
               private modalService: BsModalService,
               db: AngularFireDatabase) {
-    this.swims = db.list('/swims'); }
+    this.swims = db.list('/swims');
+  }
 
   ngOnInit() {
-    
   }
 
   public openModal(template: TemplateRef<any>) {
@@ -38,14 +44,12 @@ export class SwimmingComponent implements OnInit {
   }
 
   addSwim() {
-    console.log('Hallo from add new swim');
-    const newEntry = new Swim();
-    newEntry.date = this.selectedDate.epoc;
-    newEntry.distance = this.distance;
-    newEntry.comments = this.comments;
+    const newSwim = new Swim();
+    newSwim.date = this.selectedDate.epoc;
+    newSwim.distance = this.distance;
+    newSwim.comments = this.comments;
     this.modalRef.hide();
-    console.log(newEntry);
-    this.swims.push(newEntry);
+    this.swims.push(newSwim);
   }
 
   deleteSwim(key: string) {

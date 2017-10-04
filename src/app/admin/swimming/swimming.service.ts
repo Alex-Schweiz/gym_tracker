@@ -4,7 +4,8 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class SwimmingService {
 
-  public swimmings = [{
+  public swimmings = [
+    {
     date: '24/08/2016',
     distance: 750,
     comment: 'That was a great'

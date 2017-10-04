@@ -18,8 +18,10 @@ import { StatisticsComponent } from './admin/statistics/statistics.component';
 import { PushupsComponent } from './admin/pushups/pushups.component';
 import { SitupsComponent } from './admin/situps/situps.component';
 import { SquatsComponent } from './admin/squats/squats.component';
+import { DataTableModule } from 'angular2-datatable';
 
 import { SwimmingService } from './admin/swimming/swimming.service';
+import { PushupsService } from './admin/pushups/pushups.service';
 import { firebaseConfig } from './firebase.config';
 
 @NgModule({
@@ -37,14 +39,16 @@ import { firebaseConfig } from './firebase.config';
     RouterModule,
     FormsModule,
     MyDatePickerModule,
+    DataTableModule,
     routing,
     ModalModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   providers: [
     SwimmingService,
+    PushupsService,
   ],
   bootstrap: [AppComponent]
 })

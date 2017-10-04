@@ -7,7 +7,6 @@
     </ul>
   </div>
   <div>
-    <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
     <a class="btn btn-primary btn-flat" (click)="openModal(template)"><i class="fa fa-lg fa-plus"></i> Add a training</a>
     <!-- Modal -->
     <ng-template #template>
@@ -51,7 +50,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-body">
-        <table class="table table-hover table-bordered" id="sampleTable">
+        <table class="table table-hover table-bordered">
           <thead>
           <tr>
             <th>#</th>
@@ -63,7 +62,7 @@
           </thead>
           <tbody>
           <tr *ngFor="let swim of (swims | async); let i = index">
-            <td>{{i}}</td>
+            <td>{{i+1}}</td>
             <td>{{swim.date * 1000 | date }}</td>
             <td>{{swim.distance}}</td>
             <td>{{swim.comments}}</td>
@@ -75,11 +74,6 @@
           </tr>
           </tbody>
         </table>
-        <!--<ul>
-          <li *ngFor="let item of items | async">
-            {{ item.name }}
-          </li>
-        </ul>-->
       </div>
     </div>
   </div>

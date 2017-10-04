@@ -41,25 +41,28 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card">
+      <h3>Daily repeats (target 200)</h3>
       <div class="card-body">
         <table class="table table-hover table-bordered" id="sampleTable">
           <thead>
           <tr>
             <th>Date</th>
             <th>Repeats</th>
-            <th style="width: 50%;">Comment</th>
+            <th>Progress</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>21/08/2015</td>
-            <td>75</td>
-            <td>Great training</td>
-          </tr>
-          <tr>
-            <td>22/08/2015</td>
-            <td>80</td>
-            <td>Great training</td>
+          <tr *ngFor="let pushup of pushups">
+            <td>{{pushup.date}}</td>
+            <td>{{pushup.repeats}} / {{this.target}}</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar"
+                     [style.width.%]="pushup.percentage" >
+                  {{pushup.percentage}}% completed
+                </div>
+              </div>
+            </td>
           </tr>
           </tbody>
         </table>
