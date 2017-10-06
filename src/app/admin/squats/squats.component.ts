@@ -15,6 +15,8 @@ export class SquatsComponent implements OnInit {
   public repeats: number;
   public comments: string;
   public selectedDate: any;
+  public squatsCount = 0;
+  public squatsCountED;
 
   squats: FirebaseListObservable<any[]>;
 
@@ -28,6 +30,14 @@ export class SquatsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getCount();
+  }
+
+  getCount() {
+    this.squats.subscribe(result => {
+      this.squatsCount = result.length;
+      console.log(result.length);
+    });
   }
 
   public openModal(template: TemplateRef<any>) {
