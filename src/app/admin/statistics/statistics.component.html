@@ -19,20 +19,37 @@
             <h3>Exercises statistics</h3>
             <div class="row">
               <div class="form-group col-md-6">
-                <label for="select">Select exercise</label>
+                <label for="selectExercise">Select exercise</label>
                 <div>
-                  <select class="form-control" id="select">
-                    <option>Sit ups</option>
-                    <option>Squats</option>
-                    <option>Swim</option>
+                  <select
+                    class="form-control"
+                    id="selectExercise"
+                    [(ngModel)]="selectedExerciseList"
+                    (ngModelChange)="calculateList(selectedExerciseList)"
+                  >
+                    <option
+                      *ngFor="let item of listExercises"
+                      [value]="item.value" >
+                      {{item.name}}
+                    </option>
                   </select>
                 </div>
+                <p>You have selected: <b>{{selectedExerciseList}}</b></p>
               </div>
             </div>
             <div class="row mt-20">
-              <div class="col-lg-12 col-md-12">
+              <div class="col-lg-8 col-md-8">
                 <div class="card">
-                  <h3 class="card-title">Line Chart</h3>
+                  <div style="display: block" class="p-20">
+                    <canvas baseChart
+                            [(datasets)]="barChartData"
+                            [labels]="barChartLabels"
+                            [options]="barChartOptions"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType"
+                            (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                  </div>
                 </div>
               </div>
               <div class="col-lg-12 col-md-12">

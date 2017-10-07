@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
