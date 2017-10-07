@@ -57,7 +57,7 @@
             <th>Date</th>
             <th>Distance</th>
             <th>Comment</th>
-            <th style="width: 12%;">Actions</th>
+            <th style="width: 5%;">Actions</th>
           </tr>
           </thead>
           <tbody>
@@ -68,12 +68,12 @@
             <td>{{swim.comments}}</td>
             <td>
               <button class="btn btn-danger" (click)="openModal(softDeleteModal)">
-                Delete
+                <i class="fa fa-trash"></i>
               </button>
               <!-- SoftDelete modal -->
               <ng-template #softDeleteModal>
                 <div class="modal-header">
-                  <h4 class="modal-title pull-left">Are you sure you want to delete current entry?</h4>
+                  <p class="modal-title pull-left">Are you sure you want to delete current entry?</p>
                   <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
                     <span aria-hidden="true">&times;</span>
                   </button>
