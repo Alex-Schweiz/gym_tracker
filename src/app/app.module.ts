@@ -22,6 +22,8 @@ import { DataTableModule } from 'angular2-datatable';
 
 import { DataFilterPipe } from './admin/swimming/data-filter.pipe';
 
+import { TabsModule } from 'ngx-bootstrap';
+
 import { SwimmingService } from './admin/swimming/swimming.service';
 import { PushupsService } from './admin/pushups/pushups.service';
 import { firebaseConfig } from './firebase.config';
@@ -45,6 +47,7 @@ import { firebaseConfig } from './firebase.config';
     DataTableModule,
     routing,
     ModalModule.forRoot(),
+    TabsModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
