@@ -15,8 +15,8 @@ export class SwimmingComponent implements OnInit {
 
   public filterQuery = '';
   public rowsOnPage = 10;
-  public sortBy = 'month';
-  public sortOrder = 'asc';
+  public sortBy = 'date';
+  public sortOrder = 'desc';
   public showTable = true;
 
   public modalRef: BsModalRef;

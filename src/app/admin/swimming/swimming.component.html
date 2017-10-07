@@ -11,9 +11,9 @@
     <!-- Modal -->
     <ng-template #template>
       <div class="modal-header">
-        <h4 class="modal-title">Add a new swimming training</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">&times;</span>
+        <p class="modal-title">Add a new swimming training</p>
+        <button type="button" class="close pull-right" (click)="modalRef.hide()">
+          <span>&times;</span>
         </button>
       </div>
         <form #swimForm="ngForm">
@@ -50,7 +50,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-body">
-        <table class="table table-hover table-bordered">
+        <!--<table class="table table-hover table-bordered">
           <thead>
           <tr>
             <th>#</th>
@@ -70,7 +70,7 @@
               <button class="btn btn-danger" (click)="openModal(softDeleteModal)">
                 <i class="fa fa-trash"></i>
               </button>
-              <!-- SoftDelete modal -->
+              &lt;!&ndash; SoftDelete modal &ndash;&gt;
               <ng-template #softDeleteModal>
                 <div class="modal-header">
                   <p class="modal-title pull-left">Are you sure you want to delete current entry?</p>
@@ -90,7 +90,92 @@
             </td>
           </tr>
           </tbody>
-        </table>
+        </table>-->
+        <div class="row">
+          <h2 class="col-xs-6"></h2>
+          <div class="col-xs-2">
+            <label class="label-control">Rows on page</label>
+            <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
+              <option [ngValue]="5">5</option>
+              <option [ngValue]="10">10</option>
+              <option [ngValue]="15">15</option>
+            </select>
+          </div>
+          <div class="col-xs-4">
+            <div class="row">
+              <label class="col-xs-12 label-control">Sort by</label>
+            </div>
+            <div class="col-xs-6">
+              <div class="row">
+                <select class="form-control input-sm" [(ngModel)]="sortBy">
+                  <option ngValue="date">Date</option>
+                  <option ngValue="distance">Distance</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="row">
+                <select class="form-control input-sm" [(ngModel)]="sortOrder">
+                  <option ngValue="asc">Ascending</option>
+                  <option ngValue="desc">Descending</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+          <table class="table table-striped" [mfData]="(swims | async) | dataFilter : filterQuery" #mf="mfDataTable"
+                 [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>
+                <mfDefaultSorter by="date">Date</mfDefaultSorter>
+              </th>
+              <th>
+                <mfDefaultSorter by="distance">Distance</mfDefaultSorter>
+              </th>
+              <th>Comments</th>
+              <th style="width: 5%">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of mf.data;let i = index">
+              <td>{{i+1}}</td>
+              <td>{{item.date * 1000 | date}}</td>
+              <td>{{item.distance}}</td>
+              <td>{{item.comments}}</td>
+              <td>
+                <button class="btn btn-danger" (click)="openModal(softDeleteModal)">
+                  <i class="fa fa-trash"></i>
+                </button>
+                 <!--SoftDelete modal-->
+                <ng-template #softDeleteModal>
+                  <div class="modal-header">
+                    <p class="modal-title pull-left">Are you sure you want to delete current entry?</p>
+                    <button type="button" class="close pull-right" (click)="modalRef.hide()">
+                      <span>&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <button class="btn btn-default" (click)="modalRef.hide()">
+                      Cancel
+                    </button>
+                    <button class="btn btn-danger" style="float: right;" (click)="deleteSwim(item.$key);modalRef.hide()">
+                      Delete
+                    </button>
+                  </div>
+                </ng-template>
+              </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <td colspan="5">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
       </div>
     </div>
   </div>

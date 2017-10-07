@@ -20,6 +20,8 @@ import { SitupsComponent } from './admin/situps/situps.component';
 import { SquatsComponent } from './admin/squats/squats.component';
 import { DataTableModule } from 'angular2-datatable';
 
+import { DataFilterPipe } from './admin/swimming/data-filter.pipe';
+
 import { SwimmingService } from './admin/swimming/swimming.service';
 import { PushupsService } from './admin/pushups/pushups.service';
 import { firebaseConfig } from './firebase.config';
@@ -33,6 +35,7 @@ import { firebaseConfig } from './firebase.config';
     PushupsComponent,
     SitupsComponent,
     SquatsComponent,
+    DataFilterPipe,
   ],
   imports: [
     BrowserModule,
