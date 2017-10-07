@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /public
+/markup
 
 # dependencies
 /node_modules
