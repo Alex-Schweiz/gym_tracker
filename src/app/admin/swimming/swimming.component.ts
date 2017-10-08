@@ -17,7 +17,6 @@ export class SwimmingComponent implements OnInit {
   public rowsOnPage = 10;
   public sortBy = 'date';
   public sortOrder = 'desc';
-  public showTable = true;
 
   public modalRef: BsModalRef;
   public distance: number;

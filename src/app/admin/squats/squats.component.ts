@@ -11,12 +11,17 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   styleUrls: ['./squats.component.css']
 })
 export class SquatsComponent implements OnInit {
+
+  public filterQuery = '';
+  public rowsOnPage = 10;
+  public sortBy = 'date';
+  public sortOrder = 'desc';
+
   public modalRef: BsModalRef;
   public repeats: number;
   public comments: string;
   public selectedDate: any;
   public squatsCount = 0;
-  public squatsCountED;
 
   squats: FirebaseListObservable<any[]>;
 

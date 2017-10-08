@@ -11,6 +11,12 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   styleUrls: ['./situps.component.css']
 })
 export class SitupsComponent implements OnInit {
+
+  public filterQuery = '';
+  public rowsOnPage = 10;
+  public sortBy = 'date';
+  public sortOrder = 'desc';
+
   public modalRef: BsModalRef;
   public repeats: number;
   public comments: string;
@@ -50,7 +56,6 @@ export class SitupsComponent implements OnInit {
   deleteSitup(key: string) {
     this.situps.remove(key);
   }
-
 }
 
 class Situp {
