@@ -1,7 +1,12 @@
 .card {
   text-align: center;
+  min-height: 350px;
 }
 
 .card-body > p {
-  font-size: 25px;
+  font-size: 20px;
+}
+
+img {
+  border-radius: 50%;
 }
