@@ -1,20 +1,20 @@
 <div class="page-title">
   <div>
-    <h1><i class="fa fa-pie-chart"></i> Exercises biceps library</h1>
-    <p>Various type of exercises</p>
-  </div>
-  <div>
-    <ul class="breadcrumb">
-      <li><i class="fa fa-home fa-lg"></i></li>
-      <li><a>exercises</a></li>
+    <h1>Exercises lib</h1>
+    <ul class="breadcrumb side">
+      <li><a routerLink="/dashboard"></a><i class="fa fa-home fa-lg"></i></li>
+      <li><a routerLink="/exercises-library">Exercises library</a></li>
+      <li><a routerLink="/exercises-library/biceps">Biceps</a></li>
+      <li class="active"><a routerLink="/exercises-library/biceps/{{singleExercise.id}}">{{singleExercise.name}}</a></li>
     </ul>
   </div>
 </div>
+
 <div class="row">
   <div class="col-md-12">
     <div class="card">
       <div class="card-title">
-        <p>Сгибание рук со штангой стоя</p>
+        <p>{{singleExercise.name}}</p>
       </div>
       <div class="card-body">
         <div class="row">
@@ -27,15 +27,15 @@
               <tbody>
               <tr>
                 <td>Основные мышцы</td>
-                <td>бицепс</td>
+                <td>{{singleExercise.muscleMainType}}</td>
               </tr>
               <tr>
                 <td>Дополнительные</td>
-                <td>плечевая</td>
+                <td>{{singleExercise.muscleAdditionalType}}</td>
               </tr>
               <tr>
                 <td>Сложность выполнения</td>
-                <td>лёгкая</td>
+                <td>{{singleExercise.difficulty}}</td>
               </tr>
               </tbody>
             </table>
@@ -44,13 +44,13 @@
               <tbody>
               <tr>
                 <td>Для мужчин</td>
-                <td>10 - 15 повторений 15 - 20 кг</td>
-                <td>2 - 3 подхода</td>
+                <td>{{singleExercise.noviceTraining.men.repeats}}</td>
+                <td>{{singleExercise.noviceTraining.men.times}}</td>
               </tr>
               <tr>
                 <td>Для женщин</td>
-                <td>10 - 15 повторений 10 - 12 кг</td>
-                <td>2 - 3 подхода</td>
+                <td>{{singleExercise.noviceTraining.women.repeats}}</td>
+                <td>{{singleExercise.noviceTraining.women.times}}</td>
               </tr>
               </tbody>
             </table>
@@ -58,16 +58,16 @@
             <table class="table table-bordered">
               <tbody>
               <tr>
-                <td>Бицепс</td>
-                <td>10 (высокая)</td>
+                <td>{{singleExercise.muscleStress.main.muscle}}</td>
+                <td>{{singleExercise.muscleStress.main.stress}}</td>
               </tr>
               <tr>
-                <td>Предплечья</td>
-                <td>2 (слабая)</td>
+                <td>{{singleExercise.muscleStress.additional.muscle}}</td>
+                <td>{{singleExercise.muscleStress.additional.stress}}</td>
               </tr>
               <tr>
                 <td>Общая нагрузка / тип упражнения</td>
-                <td>12 (слабая) / изолированное</td>
+                <td>{{singleExercise.muscleStress.general}}</td>
               </tr>
               </tbody>
             </table>
@@ -75,25 +75,15 @@
         </div>
         <div class="row">
           <p class="exercise-description-header">Описание упражнения</p>
-          <p class="exercise-description-text">Это классическое упражнение на бицепс. Запомните: 1. Не поднимайте штангу до упора вверх.
-            Немного не доводите ее до груди. 2. Локти, при подъеме, лучше немного вытаскивать вперед.
-            Это заставит бицепс сильнее сократиться. 3. Опускайте штангу как минимум не быстрее, чем вы ее поднимали.
-            Изогнутый гриф даёт больше нагрузки на внутреннюю головку бицепса.</p>
+          <p class="exercise-description-text">{{singleExercise.description}}</p>
         </div>
         <div class="row">
           <p class="exercise-description-header">Основные фишки</p>
           <ol>
-            <li>Ширина хвата имеет значение. Хват на ширине плеч или чуть шире – больше будет работать внутренняя головка бицепса. Если хват уже плеч, то больше нагрузки будет на внешнюю головку.</li>
-            <li>Разгибать руки необходимо до конца. А вот сгибать – не до самого конца. Кисть должна оставаться немного впереди локтя. При таком варианте бицепс будет максимально напряжён в верхней точке.</li>
-            <li>Локти желательно не держать на месте, а немного выводить вперёд при подъёме штанги. Но лишь немного. Для того чтобы сильнее сократить бицепсы.</li>
-            <li>Старайтесь не раскачиваться и не помогать себе спиной или ногами. Это можно сделать только последние 1 – 2 повторения. Спина должна быть прямая, а плечи отведены назад.</li>
-            <li>Ставьте такой вес, чтобы могли сделать хотя бы 8 повторений.</li>
-            <li>Вопреки всеобщему мнению, я не считаю сгибание рук со штангой базовым упражнением. Базовое упражнение для бицепсов это подтягивания. Поэтому, если вы хотите большие и сильные бицепсы, то обязательно включайте в свою тренировку подтягивания.</li>
+            <li *ngFor="let item of singleExercise.mainFeatures">{{item}}</li>
           </ol>
         </div>
       </div>
     </div>
   </div>
-
-
 </div>

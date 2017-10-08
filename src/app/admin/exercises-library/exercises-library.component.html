@@ -1,15 +1,13 @@
 <div class="page-title">
   <div>
-    <h1><i class="fa fa-pie-chart"></i> Exercises library</h1>
-    <p>Various type of exercises</p>
-  </div>
-  <div>
-    <ul class="breadcrumb">
-      <li><i class="fa fa-home fa-lg"></i></li>
-      <li><a>exercises</a></li>
+    <h1>Exercises lib</h1>
+    <ul class="breadcrumb side">
+      <li><a routerLink="/dashboard"></a><i class="fa fa-home fa-lg"></i></li>
+      <li class="active"><a routerLink="/exercises-library">Exercises library</a></li>
     </ul>
   </div>
 </div>
+
 <div class="row">
   <div class="col-md-3" *ngFor="let item of categories">
     <div class="card">

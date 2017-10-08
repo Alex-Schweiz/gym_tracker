@@ -1,3 +1,9 @@
 .card {
   text-align: center;
+  min-height: 120px;
+  padding: 25px 0 10px;
+}
+
+.card > p {
+  font-size: 18px;
 }
