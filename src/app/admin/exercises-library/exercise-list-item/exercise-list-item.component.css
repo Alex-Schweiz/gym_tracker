@@ -1,0 +1,28 @@
+.card-title > p {
+  text-align: center;
+  font-size: 25px;
+}
+
+.exercise-description-header {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 15px;
+}
+
+.exercise-description-text {
+  font-size: 16px;
+  text-indent: 2em;
+  text-align: justify;
+  margin: 0 15px;
+}
+
+ol {
+  margin: 0 15px;
+  padding-bottom: 20px;
+}
+
+ol > li {
+  font-size: 16px;
+  padding: 5px;
+  text-align: justify;
+}

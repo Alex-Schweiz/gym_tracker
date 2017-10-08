@@ -21,7 +21,6 @@ export class SquatsComponent implements OnInit {
   public repeats: number;
   public comments: string;
   public selectedDate: any;
-  public squatsCount = 0;
 
   squats: FirebaseListObservable<any[]>;
 
@@ -35,21 +34,13 @@ export class SquatsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCount();
-  }
-
-  getCount() {
-    this.squats.subscribe(result => {
-      this.squatsCount = result.length;
-      console.log(result.length);
-    });
   }
 
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
 
-  addSquat() {
+  addSquat(): void {
     const newSquat = new Squat();
     newSquat.date = this.selectedDate.epoc;
     newSquat.repeats = this.repeats;
