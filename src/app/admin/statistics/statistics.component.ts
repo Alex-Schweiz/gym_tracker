@@ -36,14 +36,15 @@ export class StatisticsComponent implements OnInit {
       value: 'swims'
     },
   ];
-
-  selectedExerciseList: any;
+  selectedExerciseList = 'squats';
 
   testData = {
     squats: [],
     situps: [],
     swims: [],
   };
+
+  tableData: any;
 
   squats: FirebaseListObservable<any[]>;
   situps: FirebaseListObservable<any[]>;
@@ -61,6 +62,11 @@ export class StatisticsComponent implements OnInit {
     this.getSquats();
     this.getSitups();
     this.getSwims();
+    this.setInitialTableData();
+  }
+
+  setInitialTableData() {
+    this.tableData = this.squats;
   }
 
   getSquats(): void {
@@ -108,10 +114,13 @@ export class StatisticsComponent implements OnInit {
     }
   }
 
+  setTableData(type) {
+    this.tableData = this[type];
+  }
+
   calculateList($event) {
     this.showSquatsChart($event);
-     /*const transformpipe = this.datePipe.transform(1504306450 * 1000);
-     console.log(transformpipe);*/
+    this.setTableData($event);
   }
 
 

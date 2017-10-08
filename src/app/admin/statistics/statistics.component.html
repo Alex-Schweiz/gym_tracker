@@ -34,11 +34,11 @@
                     </option>
                   </select>
                 </div>
-                <p>You have selected: <b>{{selectedExerciseList}}</b></p>
+                <!--<p>You have selected: <b>{{selectedExerciseList}}</b></p>-->
               </div>
             </div>
             <div class="row mt-20">
-              <div class="col-lg-8 col-md-8">
+              <div class="col-lg-10 col-md-10">
                 <div class="card">
                   <div style="display: block" class="p-20">
                     <canvas baseChart
@@ -54,34 +54,24 @@
               </div>
               <div class="col-lg-12 col-md-12">
                 <div class="card">
-                  <h3 class="card-title">Simple Table</h3>
-                  <table class="table">
+                  <table class="table table-hover table-bordered">
                     <thead>
                     <tr>
                       <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
+                      <th>Date</th>
+                      <th *ngIf="this.selectedExerciseList === 'swims'; else showreps">Distance (m)</th>
+                      <ng-template #showreps>
+                        <th>Repeats</th>
+                      </ng-template>
+                      <th>Comment</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
+                    <tr *ngFor="let item of (tableData | async); let i = index">
+                      <td>{{i+1}}</td>
+                      <td>{{item.date * 1000 | date }}</td>
+                      <td>{{item.repeats || item.distance }}</td>
+                      <td>{{item.comments}}</td>
                     </tr>
                     </tbody>
                   </table>
