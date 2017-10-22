@@ -36,10 +36,10 @@
                 </div>
               </div>
             </div>
-            <div class="row mt-20">
-              <div class="col-lg-6 col-md-6">
-                <div class="card">
-                  <div style="display: block" class="p-20">
+            <div class="mt-20">
+              <div class="col-md-6">
+                <div class="">
+                  <div style="display: block">
                     <canvas baseChart
                             [(datasets)]="barChartData"
                             [labels]="barChartLabels"
@@ -68,7 +68,7 @@
                     <tbody>
                     <tr *ngFor="let item of (tableData | async); let i = index">
                       <td>{{i+1}}</td>
-                      <td>{{item.date * 1000 | date }}</td>
+                      <td>{{item.date * 1000 | date:'yyMM' }}</td>
                       <td>{{item.repeats || item.distance }}</td>
                       <td>{{item.comments}}</td>
                     </tr>
